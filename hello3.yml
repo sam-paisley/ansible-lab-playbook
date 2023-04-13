@@ -4,5 +4,5 @@
  
   tasks:
  
-  - name: Hello World!
-    shell: echo "Hi! Tower is working."
+  - name: install 
+    yum: name=nginx state=latest update_cache=true
