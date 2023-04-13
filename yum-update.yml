@@ -1,0 +1,12 @@
+---
+- name: Yum update packages
+  hosts: all
+  become: true 
+ 
+  tasks:
+ 
+  - name: run yum update
+    yum: 
+      name="*"
+      state=latest
+      update_cache=true
