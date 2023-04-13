@@ -1,9 +1,9 @@
-- name: Centos update
-  hosts: all
+---
+- name: yum update demo
+  become: true
   tasks:
-    - name: check packages for updates
-      shell: yum list updates | awk 'f;/Updated Packages/{f=1;}' | awk '{ print $1 }'
-      changed_when: updates.stdout_lines | length > 0
-      args:
-        warn: false
-      register: updates
+    - name: ensure system updated
+      yum:
+        name: "*"
+        state: latest
+        update_cache: true
