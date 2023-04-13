@@ -1,0 +1,12 @@
+---
+- name: Hello World!
+  hosts: all
+  become: true 
+ 
+  tasks:
+ 
+  - name: install 
+    yum: 
+      name=nginx
+      state=latest
+      update_cache=true
