@@ -7,6 +7,7 @@
       args:
         warn: false
       register: updates
-   - name: display count
-     debug:
-       msg: "Found {{ updates.stdout_lines | length }} packages to be updated:\n\n{{ updates.stdout }}"
+      
+     - name: display count
+       debug:
+         msg: "Found {{ updates.stdout_lines | length }} packages to be updated:\n\n{{ updates.stdout }}"
