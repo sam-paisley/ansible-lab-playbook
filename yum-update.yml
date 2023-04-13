@@ -12,7 +12,7 @@
       update_cache=true
 
   - name: Check if reboot required 
-    command: /root/needs-restarting.py -r
+    command: needs-restarting -r
     register: reboot_required
     ignore_errors: True
     changed_when: False
