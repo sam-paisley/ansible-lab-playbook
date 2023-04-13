@@ -10,3 +10,9 @@
       name=nginx
       state=absent
       update_cache=true
+  
+  - name: remove nginx filesystem
+    yum: 
+      name=nginx-filesystem
+      state=absent
+      update_cache=true
