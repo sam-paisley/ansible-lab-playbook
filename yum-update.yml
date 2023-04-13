@@ -10,3 +10,18 @@
       name="*"
       state=latest
       update_cache=true
+
+  - name: Check if reboot required 
+    command: /root/needs-restarting.py -r
+    register: reboot_required
+    ignore_errors: True
+    changed_when: False
+
+  - name: Reboot if required 
+    shell: ( /bin/sleep 5 ; shutdown -r now "Ansible updates triggered" ) &
+    async: 30
+    poll: 0
+    ignore_errors: true
+    notify:
+      - waiting for server to come back after reboot
+    when: reboot_required.rc == 1
