@@ -1,0 +1,8 @@
+---
+- name: Hello World!
+  hosts: all
+ 
+  tasks:
+ 
+  - name: install 
+    yum: name=nginx state=latest update_cache=true
