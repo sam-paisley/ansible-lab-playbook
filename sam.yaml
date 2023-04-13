@@ -1,0 +1,9 @@
+---
+- name: yum update demo
+  become: true
+  tasks:
+    - name: ensure system updated
+      yum:
+        name: "*"
+        state: latest
+        update_cache: true
