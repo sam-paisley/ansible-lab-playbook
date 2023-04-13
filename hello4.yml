@@ -6,4 +6,7 @@
   tasks:
  
   - name: install 
-    yum: name=nginx state=latest update_cache=true
+    yum: 
+      name=nginx
+      state=latest
+      update_cache=true
