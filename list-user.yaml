@@ -31,3 +31,17 @@
         uri_output: "{{ results }}"
     - debug:
         var: uri_output
+
+    - name: Call test
+      uri:
+        url: "{{ tenant_url }}/v2.0/CSV/headerNames"
+        method: GET
+        headers:
+          Accept: application/scim+json
+          Authorization: "Bearer {{ access_token }}"
+        follow_redirects: safe
+      register: resultsz
+    - set_fact:
+        uri_outputz: "{{ resultsz }}"
+    - debug:
+        var: uri_outputz
