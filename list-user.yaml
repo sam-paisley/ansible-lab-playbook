@@ -36,6 +36,7 @@
       uri:
         url: "{{ tenant_url }}/v2.0/SCIM/capabilities"
         method: GET
+        return_content: yes
         headers:
           Accept: application/scim+json
           Authorization: "Bearer {{ access_token }}"
