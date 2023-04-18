@@ -51,19 +51,14 @@
     - debug:
         var: isv_user
 
-    - name: Call ISV SCIM API to get all users
+
+    - name: Call ISV SCIM API list all users
       uri:
-        url: "{{ tenant_url }}/v2.0/Users/authentication"
+        url: "{{ tenant_url }}/v2.0/Users"
         method: GET
-        body_format: form-urlencoded
-        body:
-          username: "test2"
-          password: "test123"
-          schemas: 
-            - "urn:ietf:params:scim:schemas:ibm:core:2.0:AuthenticateUser"
         headers:
           Accept: application/scim+json
-          #Authorization: "Bearer {{ access_token }}"
+          Authorization: "Bearer {{ access_token }}"
       register: results
     - set_fact:
         user_list: "{{ results }}"
