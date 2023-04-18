@@ -47,6 +47,6 @@
         #      filter: "userName eq {{ username }}"
       register: results
     - set_fact:
-        isv_user: "{{ results.json }}"
+        isv_user: "{{ results }}"
     - debug:
         var: isv_user
