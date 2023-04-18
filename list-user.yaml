@@ -21,12 +21,11 @@
     - name: Call ISV SCIM API list all users
       uri:
         url: "{{ tenant_url }}/v2.0/Users"
-        body_format: json
         method: GET
         headers:
           Accept: application/scim+json
           Authorization: "Bearer {{ access_token }}"
-      register: resultsz
+      register: results
     - set_fact:
         uri_output: "{{ results }}"
     - debug:
