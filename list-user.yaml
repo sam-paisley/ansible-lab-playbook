@@ -45,3 +45,6 @@
         uri_outputz: "{{ resultsz }}"
     - debug:
         var: uri_outputz
+
+    - name: print debug
+      debug: msg="{{ uri_outputz }}"
