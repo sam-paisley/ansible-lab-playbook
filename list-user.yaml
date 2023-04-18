@@ -23,7 +23,7 @@
         url: "{{ tenant_url }}/v2.0/Users"
         method: GET
         headers:
-          Accept: application/scim+json
+          #Accept: application/scim+json
           Authorization: "Bearer {{ access_token }}"
       register: resultsz
     - set_fact:
