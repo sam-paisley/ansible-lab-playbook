@@ -51,9 +51,9 @@
     - debug:
         var: isv_user
 
-    - name: Call ISV SCIM API to list api clients
+    - name: Call ISV SCIM API to get all users
       uri:
-        url: "{{ tenant_url }}/v1.0/apiclients/webhook-api/"
+        url: "{{ tenant_url }}/v2.0/Users"
         method: GET
         headers:
           Accept: application/scim+json
