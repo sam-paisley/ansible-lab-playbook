@@ -28,6 +28,6 @@
           Authorization: "Bearer {{ access_token }}"
       register: resultsz
     - set_fact:
-        user_list: "{{ results }}"
+        output: "{{ results }}"
     - debug:
-        var: results
+        var: output
