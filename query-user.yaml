@@ -63,4 +63,4 @@
     - set_fact:
         user_list: "{{ resultsz }}"
     - debug:
-        var: results
+        var: resultsz
