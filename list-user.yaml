@@ -34,7 +34,7 @@
 
     - name: Call test
       uri:
-        url: "{{ tenant_url }}/v2.0/CSV/headerNames?filter=user"
+        url: "{{ tenant_url }}/v2.0/SCIM/capabilities"
         method: GET
         headers:
           Accept: application/scim+json
