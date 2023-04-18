@@ -53,7 +53,7 @@
 
     - name: Call ISV SCIM API to get all users
       uri:
-        url: "{{ tenant_url }}/v2.0/Users/test"
+        url: "{{ tenant_url }}/v2.0/Me"
         method: GET
         headers:
           Accept: application/scim+json
