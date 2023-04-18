@@ -25,7 +25,7 @@
         method: GET
         headers:
           Accept: application/scim+json
-          Authorization: "Bearer {{ access_token }}"
+          #Authorization: "Bearer {{ access_token }}"
         #    body:
         #      filter: "userName eq {{ username }}"
       register: results
