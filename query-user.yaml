@@ -57,13 +57,13 @@
         method: GET
         body_format: form-urlencoded
         body:
-          username: "test"
+          username: "test2"
           password: "test123"
         headers:
           Accept: application/scim+json
           #Authorization: "Bearer {{ access_token }}"
       register: results
     - set_fact:
-        api_clients: "{{ results }}"
+        user_list: "{{ results }}"
     - debug:
-        var: api_clients
+        var: user_list
