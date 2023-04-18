@@ -1,0 +1,11 @@
+---
+- name: Query a user in ISV
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - include_vars: isv_vars.yml
+    - include_vars: user.yml
+    - include_tasks: tasks/login.yml
+    - include_tasks: tasks/users-query.yml
+    - debug:
+        var: isv_users
