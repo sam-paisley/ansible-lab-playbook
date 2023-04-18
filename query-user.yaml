@@ -18,7 +18,7 @@
     - debug:
         var: access_token
 
-    - name: Call ISV SCIM API for Querying users
+    - name: Call ISV SCIM API for list webhooks
       uri:
         #url: "{{ tenant_url }}/v2.0/Users?filter=username%20eq%20{{ username }}"
         url: "{{ tenant_url }}/config/v1.0/webhooks/"
@@ -32,6 +32,21 @@
       register: results
     - set_fact:
         #isv_users: "{{ results.json.Resources }}"
-        webhooks: "{{ results.json.webhooks }}"
+        webhooks: "{{ results.json }}"
     - debug:
         var: webhooks
+
+    - name: Call ISV SCIM API to query use
+      uri:
+        #url: "{{ tenant_url }}/v2.0/Users?filter=username%20eq%20{{ username }}"
+        method: GET
+        headers:
+          Accept: application/scim+json
+          Authorization: "Bearer {{ access_token }}"
+        #    body:
+        #      filter: "userName eq {{ username }}"
+      register: results
+    - set_fact:
+        isv_user: "{{ results.json.Resources }}"
+    - debug:
+        var: isv_user
