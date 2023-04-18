@@ -26,6 +26,7 @@
         headers:
           #Accept: application/scim+json
           Authorization: "Bearer {{ access_token }}"
+      follow_redirects: safe
       register: resultsz
     - set_fact:
         user_list: "{{ results }}"
