@@ -32,7 +32,7 @@
       register: results
     - set_fact:
         #isv_users: "{{ results.json.Resources }}"
-        webhooks: "{{ results.json }}"
+        webhooks: "{{ results }}"
     - debug:
         var: webhooks
 
