@@ -53,7 +53,7 @@
 
     - name: Call ISV SCIM API to list api clients
       uri:
-        url: "{{ tenant_url }}/v1.0/apiclients/"
+        url: "{{ tenant_url }}/v1.0/apiclients"
         method: GET
         headers:
           Accept: application/scim+json
