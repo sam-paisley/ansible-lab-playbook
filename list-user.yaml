@@ -44,7 +44,7 @@
         follow_redirects: safe
       register: resultsz
     - set_fact:
-        uri_outputz: "{{ resultsz }}"
+        uri_outputz: "{{ resultsz.content }}"
     - debug:
         var: uri_outputz
 
