@@ -59,7 +59,8 @@
         body:
           username: "test2"
           password: "test123"
-          schemas: "urn:ietf:params:scim:schemas:ibm:core:2.0:AuthenticateUser"
+          schemas: 
+            - "urn:ietf:params:scim:schemas:ibm:core:2.0:AuthenticateUser"
         headers:
           Accept: application/scim+json
           #Authorization: "Bearer {{ access_token }}"
