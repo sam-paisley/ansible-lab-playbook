@@ -50,3 +50,16 @@
         isv_user: "{{ results }}"
     - debug:
         var: isv_user
+
+    - name: Call ISV SCIM API to list api clients
+      uri:
+        url: "{{ tenant_url }}/v1.0/apiclients/"
+        method: GET
+        headers:
+          Accept: application/scim+json
+          Authorization: "Bearer {{ access_token }}"
+      register: results
+    - set_fact:
+        api_clients: "{{ results }}"
+    - debug:
+        var: api_clients
