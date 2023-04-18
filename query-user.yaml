@@ -59,8 +59,8 @@
         headers:
           Accept: application/scim+json
           Authorization: "Bearer {{ access_token }}"
-      register: results
+      register: resultsz
     - set_fact:
-        user_list: "{{ results }}"
+        user_list: "{{ resultsz }}"
     - debug:
         var: results
