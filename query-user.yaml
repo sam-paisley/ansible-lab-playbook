@@ -53,11 +53,15 @@
 
     - name: Call ISV SCIM API to get all users
       uri:
-        url: "{{ tenant_url }}/v2.0/Me"
+        url: "{{ tenant_url }}/v2.0/Users/authentication"
         method: GET
+        body_format: form-urlencoded
+        body:
+          username: "test"
+          password: "test123"
         headers:
           Accept: application/scim+json
-          Authorization: "Bearer {{ access_token }}"
+          #Authorization: "Bearer {{ access_token }}"
       register: results
     - set_fact:
         api_clients: "{{ results }}"
