@@ -29,7 +29,7 @@
         follow_redirects: safe
       register: results
     - set_fact:
-        uri_output: "{{ results }}"
+        uri_output: "{{ results.json.content }}"
     - debug:
         var: uri_output
 
