@@ -1,0 +1,32 @@
+---
+- name: Query a user in ISV
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Get access token
+      uri:
+        url: "{{ tenant_url }}/v1.0/endpoint/default/token"
+        method: POST
+        body_format: form-urlencoded
+        body:
+          client_id: "{{ client_id }}"
+          client_secret: "{{ client_secret }}"
+          grant_type: client_credentials
+      register: results
+    - set_fact:
+        access_token: "{{ results.json.access_token }}"
+    - debug:
+        var: access_token
+
+    - name: Call ISV SCIM API list all users
+      uri:
+        url: "{{ tenant_url }}/v2.0/Users"
+        method: GET
+        headers:
+          Accept: application/scim+json
+          Authorization: "Bearer {{ access_token }}"
+      register: resultsz
+    - set_fact:
+        user_list: "{{ resultsz }}"
+    - debug:
+        var: resultsz.json
