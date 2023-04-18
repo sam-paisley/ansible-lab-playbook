@@ -21,8 +21,9 @@
     - name: Call ISV SCIM API for Querying users
       uri:
         #url: "{{ tenant_url }}/v2.0/Users?filter=username%20eq%20{{ username }}"
-        url: "{{ tenant_url }}/v2.0/Users"
+        url: "{{ tenant_url }}/v2.0/Users/cardinality"
         method: GET
+        return_content: yes
         headers:
           Accept: application/scim+json
           Authorization: "Bearer {{ access_token }}"
@@ -31,6 +32,6 @@
       register: results
     - set_fact:
         #isv_users: "{{ results.json.Resources }}"
-        isv_users: "{{ results }}"
+        isv_users: "{{ results.json }}"
     - debug:
         var: isv_users
