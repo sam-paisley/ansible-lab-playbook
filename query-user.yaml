@@ -12,6 +12,6 @@
           client_id: "{{ client_id }}"
           client_secret: "{{ client_secret }}"
           grant_type: client_credentials
-  register: results
-- set_fact:
-    access_token: "{{ results.json.access_token }}"
+    register: results
+    - set_fact:
+      access_token: "{{ results.json.access_token }}"
