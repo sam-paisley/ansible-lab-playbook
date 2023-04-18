@@ -32,6 +32,6 @@
       register: results
     - set_fact:
         #isv_users: "{{ results.json.Resources }}"
-        isv_users: "{{ results.json }}"
+        webhooks: "{{ results.json.webhooks }}"
     - debug:
-        var: isv_users
+        var: webhooks
