@@ -23,7 +23,7 @@
         #url: "{{ tenant_url }}/v2.0/Users?filter=username%20eq%20{{ username }}"
         url: "{{ tenant_url }}/v1.0/applications/stats"
         method: GET
-        return_content: yes
+        #return_content: yes
         headers:
           Accept: application/scim+json
           Authorization: "Bearer {{ access_token }}"
