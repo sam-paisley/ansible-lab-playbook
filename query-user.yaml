@@ -20,7 +20,8 @@
 
     - name: Call ISV SCIM API for Querying users
       uri:
-        url: "{{ tenant_url }}/v2.0/Users?filter=username%20eq%20{{ username }}"
+        #url: "{{ tenant_url }}/v2.0/Users?filter=username%20eq%20{{ username }}"
+        url: "{{ tenant_url }}/v2.0/Users/cardinality"
         method: GET
         headers:
           Accept: application/scim+json
