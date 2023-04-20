@@ -1,0 +1,11 @@
+---
+- name: Setup chronyd 
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Start chronyd 
+      service
+        name: chronyd
+        enabled: yes
+        state: started:
