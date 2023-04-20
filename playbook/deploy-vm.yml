@@ -23,7 +23,7 @@
           num_cpus: 4
           scsi: paravirtual
         networks:
-        - name: net3
+        - name: new3
           mac: aa:bb:dd:aa:00:14
           ip: 192.168.5.124
           netmask: 255.255.255.0
