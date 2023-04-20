@@ -23,11 +23,11 @@
           num_cpus: 4
           scsi: paravirtual
         networks:
-        - name: Network
+        - name: net3
           mac: aa:bb:dd:aa:00:14
           ip: 192.168.5.124
           netmask: 255.255.255.0
-          device_type: new3
+          #device_type: new3
         #wait_for_ip_address: true
         #wait_for_ip_address_timeout: 600
       delegate_to: localhost
