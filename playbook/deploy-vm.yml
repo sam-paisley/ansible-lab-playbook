@@ -2,10 +2,42 @@
 - name: BLAF
 
   tasks:
-  
-    - name: Create a virtual machine on given ESXi hostname
+
+    - name: Create a new virtual machine {{ hostname }} on vCenter {{ vcenter_hostname }} from template {{ source_template }}
       community.vmware.vmware_guest:
-        hostname: qer
-        username: asdf
-        password: asdf
-        folder: /DC1/vm/
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: false
+        datacenter: "{{ datacenter_name }}"
+        folder: /{{ datacenter_name }}/vm/
+        name: "{{ hostname }}"
+        state: present
+        template: "{{ source_template }}"
+        esxi_hostname: "{{ esxi_hostname }}"
+        disk:
+          - size_gb: "{{ size_disk }}"
+            type: "{{ disk_type }}"
+            datastore: "{{ datastore_name }}"
+        hardware:
+          memory_mb: "{{ memory }}"
+          memory_reservation_lock: true
+          num_cpus: "{{ vcpu }}"
+          cpu_reservation: "{{ reserved_cpu }}"
+          scsi: paravirtual
+          nested_virt: true
+        networks:
+        - name: VM Network
+          ip: "{{ ip_address }}"
+          netmask: "{{ ip_netmask }}"
+          gateway: "{{ default_gateway }}"
+          device_type: vmxnet3
+          type: static
+          state: present
+        customization:
+          dns_servers:
+            - "{{ dns_1 }}"
+            - "{{ dns_2 }}"
+        wait_for_ip_address: true
+      delegate_to: localhost
+      register: deploy_vm
