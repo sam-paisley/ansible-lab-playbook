@@ -1,9 +1,9 @@
 ---
 - name: BLAF
-- hosts: local
+- hosts: ala
   tasks:
     - name: Create a virtual machine on given ESXi hostname
-      community.vmware.vmware_guest:
+      vmware_guest:
         hostname: qer
         username: asdf
         password: asdf
