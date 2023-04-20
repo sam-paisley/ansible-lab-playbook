@@ -5,7 +5,7 @@
 
   tasks:
     - name: Start chronyd 
-      service
+      service:
         name: chronyd
         enabled: yes
         state: started:
