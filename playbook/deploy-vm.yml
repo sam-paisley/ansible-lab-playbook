@@ -1,35 +1,26 @@
 ---
-- name: Yum update packages
-  hosts: all
-  become: false 
-
-
+- name: Test
+  hosts: local
+  become: false
+  gather_facts: false
+  vars:
   tasks:
-
-    - name: Deploy vm
-
+    - name: Create a virtual machine on given ESXi hostname
       community.vmware.vmware_guest:
-        hostname: "{{ vsphere_hostname }}"
-        username: "{{ vsphere_username }}"
-        password: "{{ vsphere_password }}"
-        validate_certs: false
-        name: Linux-VM
-        datacenter: SG1
-        cluster: SG1-CLS-MGMT-01
-        folder: /SG1/vm
-        template: CENTOS7_TMPL
-        datastore: vsanDatastore
-        hardware:
-          memory_mb: 2048
-          num_cpus: 1
-        networks:
-          - name: Management
-            ip: 192.168.5.124
-            netmask: 255.255.255.0
-            gateway: 192.168.5.1
-        customization:
-          dns_servers:
-            - 192.168.5.1
-        wait_for_ip_address: true
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        folder: /DC1/vm/
+        name: test_vm_0001
         state: poweredon
+        guest_id: centos64Guest
+        # This is hostname of particular ESXi server on which user wants VM to be deployed
+        esxi_hostname: "{{ esxi_hostname }}"
+        hardware:
+          memory_mb: 512
+          num_cpus: 4
+          scsi: paravirtual
+        wait_for_ip_address: true
+        wait_for_ip_address_timeout: 600
       delegate_to: localhost
+      register: deploy_vm
