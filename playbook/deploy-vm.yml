@@ -1,5 +1,5 @@
 - name: BLAF
-
+  hosts: all
   tasks:
 
     - name: Create a new virtual machine
