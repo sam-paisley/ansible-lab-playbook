@@ -7,7 +7,7 @@
         hostname: "{{ vsphere_hostname }}"
         username: "{{ vsphere_username }}"
         password: "{{ vsphere_password }}"
-        #folder: /DC1/vm/
+        folder: /DC1/vm/
         name: test_vm_0001
         state: poweredoff
         validate_certs: no
