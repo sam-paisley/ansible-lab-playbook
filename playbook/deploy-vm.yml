@@ -3,7 +3,7 @@
   tasks:
 
     - name: Create a new virtual machine
-      community.vmware.vmware_guest:
+      vmware_guest:
         name=nginx
         state=latest
         update_cache=true
