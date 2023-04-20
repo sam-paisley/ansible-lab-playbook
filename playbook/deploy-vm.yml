@@ -9,7 +9,7 @@
         password: "{{ vsphere_password }}"
         folder: /ha-datacenter/vm
         name: test_vm_0001
-        state: poweredoff
+        state: absent
         validate_certs: no
         guest_id: centos64Guest
         # This is hostname of particular ESXi server on which user wants VM to be deployed
