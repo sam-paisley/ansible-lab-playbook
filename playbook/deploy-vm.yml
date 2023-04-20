@@ -2,7 +2,6 @@
 - hosts: local
   become: no
   gather_facts: False
-  vars:
   tasks:
   - name: Create a Linux Virtual Machine
     vmware_guest:
