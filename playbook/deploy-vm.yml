@@ -1,12 +1,12 @@
 ---
-- name: my play
-- hosts: local
+- name: My play
+  hosts: local
   become: no
   gather_facts: False
   tasks:
 
   - name: Create a Linux Virtual Machine
-    vmware_guest:
+    community.vmware.vmware_guest:
       hostname: "{{ vsphere_hostname }}"
       username: "{{ vsphere_username }}"
       password: "{{ vsphere_password }}"
