@@ -1,4 +1,5 @@
 ---
+- name: my play
 - hosts: local
   become: no
   gather_facts: False
@@ -8,7 +9,7 @@
     vmware_guest:
       hostname: "{{ vsphere_hostname }}"
       username: "{{ vsphere_username }}"
-      password: "{{ vsphere_password }}" 
+      password: "{{ vsphere_password }}"
       validate_certs: no
       name: Linux-VM
       datacenter: SG1
