@@ -1,16 +1,17 @@
 ---
 - name: My play
   hosts: local
-  become: no
-  gather_facts: False
+  become: false
+  gather_facts: false
   tasks:
 
-   - name: Create a Linux Virtual Machine
+  - name: Deploy vm
+
     community.vmware.vmware_guest:
       hostname: "{{ vsphere_hostname }}"
       username: "{{ vsphere_username }}"
       password: "{{ vsphere_password }}"
-      validate_certs: no
+      validate_certs: false
       name: Linux-VM
       datacenter: SG1
       cluster: SG1-CLS-MGMT-01
@@ -28,6 +29,6 @@
       customization:
         dns_servers:
           - 192.168.5.1
-      wait_for_ip_address: True
+      wait_for_ip_address: true
       state: poweredon
     delegate_to: localhost
