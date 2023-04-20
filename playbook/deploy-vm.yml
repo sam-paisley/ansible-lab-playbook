@@ -5,7 +5,7 @@
   gather_facts: False
   tasks:
 
-  - name: Create a Linux Virtual Machine
+   - name: Create a Linux Virtual Machine
     community.vmware.vmware_guest:
       hostname: "{{ vsphere_hostname }}"
       username: "{{ vsphere_username }}"
