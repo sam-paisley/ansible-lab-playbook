@@ -2,7 +2,7 @@
 - name: BLAF
 - hosts: local
   tasks:
-    - name: Create a virtual machine on given ESXi hostname
+    - namez: Create a virtual machine on given ESXi hostname
       module.community.vmware.vmware_guest:
         hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_username }}"
