@@ -4,15 +4,15 @@
 
     - name: Create a virtual machine on given ESXi hostname
       vmware_guest:
-        hostname: "{{ vcentre_hostname }}"
-        username: "{{ vcentre_username }}"
-        password: "{{ vcentre_password }}"
-        folder: /DC1/vm/
+        hostname: "{{ vsphere_hostname }}"
+        username: "{{ vshpere_username }}"
+        password: "{{ vsphere_password }}"
+        #folder: /DC1/vm/
         name: test_vm_0001
-        state: poweredon
-        guest_id: centos64Guest
+        state: poweredoff
+        #guest_id: centos64Guest
         # This is hostname of particular ESXi server on which user wants VM to be deployed
-        esxi_hostname: "{{ esxi_hostname }}"
+        #esxi_hostname: "{{ esxi_hostname }}"
         disk:
         - size_gb: 10
           type: thin
@@ -24,7 +24,7 @@
         networks:
         - name: VM Network
           mac: aa:bb:dd:aa:00:14
-          ip: 10.10.10.100
+          ip: 192.168.5.124
           netmask: 255.255.255.0
           device_type: vmxnet3
         wait_for_ip_address: true
