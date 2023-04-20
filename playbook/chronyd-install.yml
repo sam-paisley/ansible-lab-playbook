@@ -8,4 +8,4 @@
       service:
         name: chronyd
         enabled: yes
-        state: started:
+        state: started
