@@ -2,20 +2,9 @@
 - name: BLAF
 - hosts: local
   tasks:
-    - namez: Create a virtual machine on given ESXi hostname
+    - name: Create a virtual machine on given ESXi hostname
       module.community.vmware.vmware_guest:
         hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
         folder: /DC1/vm/
-        name: test_vm_0001
-        state: poweredon
-        guest_id: centos64Guest
-        # This is hostname of particular ESXi server on which user wants VM to be deployed
-        esxi_hostname: "{{ esxi_hostname }}"
-        hardware:
-          memory_mb: 512
-          num_cpus: 4
-          scsi: paravirtual
-        wait_for_ip_address: true
-        wait_for_ip_address_timeout: 600
