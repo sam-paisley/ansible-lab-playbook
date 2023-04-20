@@ -1,0 +1,33 @@
+---
+- hosts: local
+  become: no
+  gather_facts: False
+  vars:
+  tasks:
+  - name: Create a Linux Virtual Machine
+    vmware_guest:
+      hostname: {{ vsphere_hostname }} 
+      username: {{ vsphere_username }}
+      password: {{ vsphere_password }} 
+      validate_certs: no
+      name: Linux-VM
+      datacenter: SG1
+      cluster: SG1-CLS-MGMT-01
+      folder: /SG1/vm
+      template: CENTOS7_TMPL
+      datastore: vsanDatastore
+      hardware:
+        memory_mb: 2048
+        num_cpus: 1
+      networks:
+        - name: Management
+          ip: 192.168.5.124
+          netmask: 255.255.255.0
+          gateway: 192.168.5.1
+      customization:
+        domain: sgroot.local
+        dns_servers:
+          - 192.168.5.1
+      wait_for_ip_address: True
+      state: poweredon
+    delegate_to: localhost
