@@ -3,6 +3,7 @@
   become: no
   gather_facts: False
   tasks:
+
   - name: Create a Linux Virtual Machine
     vmware_guest:
       hostname: "{{ vsphere_hostname }}"
