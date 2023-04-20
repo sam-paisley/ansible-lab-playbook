@@ -11,7 +11,7 @@
         name: test_vm_0001
         state: poweredoff
         validate_certs: no
-        #guest_id: centos64Guest
+        guest_id: centos64Guest
         # This is hostname of particular ESXi server on which user wants VM to be deployed
         #esxi_hostname: "{{ esxi_hostname }}"
         disk:
