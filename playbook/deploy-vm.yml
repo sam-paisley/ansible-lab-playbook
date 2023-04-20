@@ -1,7 +1,8 @@
 ---
 - name: BLAF
-- hosts: ala
+
   tasks:
+  
     - name: Create a virtual machine on given ESXi hostname
       community.vmware.vmware_guest:
         hostname: qer
