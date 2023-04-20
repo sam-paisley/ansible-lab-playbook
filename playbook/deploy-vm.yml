@@ -3,7 +3,7 @@
 - hosts: ala
   tasks:
     - name: Create a virtual machine on given ESXi hostname
-      vmware_guest:
+      community.vmware.vmware_guest:
         hostname: qer
         username: asdf
         password: asdf
