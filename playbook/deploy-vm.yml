@@ -1,34 +1,35 @@
 ---
-- name: My play
-  hosts: local
-  become: false
-  gather_facts: false
+- name: Yum update packages
+  hosts: all
+  become: false 
+
+
   tasks:
 
-  - name: Deploy vm
+    - name: Deploy vm
 
-    community.vmware.vmware_guest:
-      hostname: "{{ vsphere_hostname }}"
-      username: "{{ vsphere_username }}"
-      password: "{{ vsphere_password }}"
-      validate_certs: false
-      name: Linux-VM
-      datacenter: SG1
-      cluster: SG1-CLS-MGMT-01
-      folder: /SG1/vm
-      template: CENTOS7_TMPL
-      datastore: vsanDatastore
-      hardware:
-        memory_mb: 2048
-        num_cpus: 1
-      networks:
-        - name: Management
-          ip: 192.168.5.124
-          netmask: 255.255.255.0
-          gateway: 192.168.5.1
-      customization:
-        dns_servers:
-          - 192.168.5.1
-      wait_for_ip_address: true
-      state: poweredon
-    delegate_to: localhost
+      community.vmware.vmware_guest:
+        hostname: "{{ vsphere_hostname }}"
+        username: "{{ vsphere_username }}"
+        password: "{{ vsphere_password }}"
+        validate_certs: false
+        name: Linux-VM
+        datacenter: SG1
+        cluster: SG1-CLS-MGMT-01
+        folder: /SG1/vm
+        template: CENTOS7_TMPL
+        datastore: vsanDatastore
+        hardware:
+          memory_mb: 2048
+          num_cpus: 1
+        networks:
+          - name: Management
+            ip: 192.168.5.124
+            netmask: 255.255.255.0
+            gateway: 192.168.5.1
+        customization:
+          dns_servers:
+            - 192.168.5.1
+        wait_for_ip_address: true
+        state: poweredon
+      delegate_to: localhost
