@@ -3,7 +3,7 @@
 
   tasks:
 
-    - name: Create a new virtual machine {{ hostname }} on vCenter {{ vcenter_hostname }} from template {{ source_template }}
+    - name: Create a new virtual machine
       community.vmware.vmware_guest:
         hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_username }}"
