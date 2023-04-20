@@ -5,7 +5,7 @@
     - name: Create a virtual machine on given ESXi hostname
       vmware_guest:
         hostname: "{{ vsphere_hostname }}"
-        username: "{{ vshpere_username }}"
+        username: "{{ vsphere_username }}"
         password: "{{ vsphere_password }}"
         #folder: /DC1/vm/
         name: test_vm_0001
@@ -16,17 +16,17 @@
         disk:
         - size_gb: 10
           type: thin
-          datastore: datastore1
+          datastore: datastore2
         hardware:
           memory_mb: 512
           num_cpus: 4
           scsi: paravirtual
         networks:
-        - name: VM Network
+        - name: Network
           mac: aa:bb:dd:aa:00:14
           ip: 192.168.5.124
           netmask: 255.255.255.0
-          device_type: vmxnet3
+          device_type: new3
         wait_for_ip_address: true
         wait_for_ip_address_timeout: 600
       delegate_to: localhost
