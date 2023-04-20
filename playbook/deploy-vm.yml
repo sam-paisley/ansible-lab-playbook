@@ -4,9 +4,9 @@
 
     - name: Create a virtual machine on given ESXi hostname
       vmware_guest:
-        hostname: "{{ vcenter_hostname }}"
-        username: "{{ vcenter_username }}"
-        password: "{{ vcenter_password }}"
+        hostname: "{{ vcentre_hostname }}"
+        username: "{{ vcentre_username }}"
+        password: "{{ vcentre_password }}"
         folder: /DC1/vm/
         name: test_vm_0001
         state: poweredon
