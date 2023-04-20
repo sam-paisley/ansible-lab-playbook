@@ -3,7 +3,6 @@
   hosts: local
   become: false
   gather_facts: false
-  vars:
   tasks:
   - name: Create a virtual machine on given ESXi hostname
     community.vmware.vmware_guest:
